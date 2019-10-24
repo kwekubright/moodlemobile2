@@ -223,7 +223,10 @@ export class CoreLoginCredentialsPage {
 
                 this.siteId = id;
 
-                return this.loginHelper.goToSiteInitialPage(undefined, undefined, undefined, undefined, this.urlToOpen);
+                this.navCtrl.push('CoreCoursesAvailableCoursesPage', {});
+
+                //return this.loginHelper.goToSiteInitialPage(undefined, undefined, undefined, undefined, this.urlToOpen);
+                //alert(this.urlToOpen);
             });
         }).catch((error) => {
             this.loginHelper.treatUserTokenError(siteUrl, error, username, password);

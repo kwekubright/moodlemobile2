@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar core-back-button>
+    <ion-navbar core-back-button hideBackButton="false"> 
         <ion-title>{{ 'core.settings.sites' | translate }}</ion-title>
 
         <ion-buttons end>
@@ -20,16 +20,16 @@
             </ion-avatar>
             <h2>{{site.fullName}}</h2>
             <p><core-format-text [text]="site.siteName" clean="true" [siteId]="site.id"></core-format-text></p>
-            <p>{{site.siteUrl}}</p>
+            <!-- <p>{{site.siteUrl}}</p> -->
             <ion-badge item-end *ngIf="!showDelete && site.badge">{{site.badge}}</ion-badge>
             <button *ngIf="showDelete" item-end ion-button icon-only clear color="danger" (click)="deleteSite($event, idx)" [attr.aria-label]="'core.delete' | translate">
                 <ion-icon name="trash"></ion-icon>
             </button>
         </a>
     </ion-list>
-    <ion-fab core-fab bottom end>
+    <!-- <ion-fab core-fab bottom end>
         <button ion-fab (click)="add()" [attr.aria-label]="'core.add' | translate">
             <ion-icon name="add"></ion-icon>
-        </button>
-    </ion-fab>
+        </button> 
+    </ion-fab> -->
 </ion-content>

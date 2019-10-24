@@ -1,7 +1,8 @@
 {
     "addtofavourites": "Star this course",
     "allowguests": "This course allows guest users to enter",
-    "availablecourses": "Available courses",
+    "availablecourses": "Available Assessments",
+    "availabletests": "Available Assessments",
     "cannotretrievemorecategories": "Categories deeper than level {{$a}} cannot be retrieved.",
     "categories": "Course categories",
     "confirmselfenrol": "Are you sure you want to enrol yourself in this course?",

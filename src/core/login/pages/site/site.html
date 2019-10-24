@@ -41,7 +41,7 @@
             <ion-searchbar *ngIf="fixedSites.length > 4" [(ngModel)]="filter" (ionInput)="filterChanged($event)" (ionCancel)="filterChanged()" [placeholder]="'core.login.findyoursite' | translate"></ion-searchbar>
             <ion-item *ngFor="let site of filteredSites" (click)="connect($event, site.url)" [title]="site.name" detail-push text-wrap>
                 <h2>{{site.name}}</h2>
-                <p *ngIf="fixedDisplay == 'list'">{{site.url}}</p>
+               <!-- <p *ngIf="fixedDisplay == 'list'">{{site.url}}</p> -->
             </ion-item>
         </ion-list>
 
