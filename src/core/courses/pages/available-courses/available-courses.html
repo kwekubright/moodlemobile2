@@ -7,6 +7,10 @@
     <ion-refresher [enabled]="coursesLoaded" (ionRefresh)="refreshCourses($event)">
         <ion-refresher-content pullingText="{{ 'core.pulltorefresh' | translate }}"></ion-refresher-content>
     </ion-refresher>
+    <img src="assets/img/home2.png" style="width:100%;"/>
+    <div style="padding:0px 10px 0px 10px">
+        <p>Here is a list of available assessments. Tap on an assessment to proceed.</p>
+    </div>
     <core-loading [hideUntil]="coursesLoaded">
         <div *ngIf="courses.length > 0">
             <core-courses-course-list-item *ngFor="let course of courses" [course]="course"></core-courses-course-list-item>

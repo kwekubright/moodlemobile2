@@ -19,7 +19,7 @@
         <ion-item *ngFor="let site of sites" [class.core-primary-selected-item]="site.id == currentSiteId" text-wrap>
             <h2><core-format-text [text]="site.siteName"></core-format-text></h2>
             <p>{{ site.fullName }}</p>
-            <p>{{ site.siteUrl }}</p>
+            <p>Sync with server</p>
             <button ion-button icon-only clear item-end *ngIf="!isSynchronizing(site.id)" (click)="synchronize(site.id)" [title]="site.siteName" [attr.aria-label]="'core.settings.synchronizenow' | translate">
                 <ion-icon name="sync"></ion-icon>
             </button>

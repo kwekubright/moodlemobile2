@@ -65,12 +65,12 @@
             </a>
             <a ion-item (click)="openCourse()" [title]="course.fullname" *ngIf="!avoidOpenCourse && canAccessCourse">
                 <ion-icon name="briefcase" item-start></ion-icon>
-                <h2>{{ 'core.course.contents' | translate }}</h2>
+                <h2>View contents</h2>
             </a>
-            <a ion-item [href]="courseUrl" core-link [title]="course.fullname">
+            <!-- <a ion-item [href]="courseUrl" core-link [title]="course.fullname">
                 <ion-icon name="open" item-start></ion-icon>
                 <h2>{{ 'core.openinbrowser' | translate }}</h2>
-            </a>
+            </a> -->
         </ion-list>
     </core-loading>
 </ion-content>
