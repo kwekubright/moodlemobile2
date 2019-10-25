@@ -27,13 +27,7 @@
         </ion-label>
         <ion-toggle [(ngModel)]="richTextEditor" (ngModelChange)="richTextEditorChanged()"></ion-toggle>
     </ion-item>
-    <ion-item text-wrap>
-        <ion-label>
-            <h2>{{ 'core.settings.debugdisplay' | translate }}</h2>
-            <p>{{ 'core.settings.debugdisplaydescription' | translate }}</p>
-        </ion-label>
-        <ion-toggle [(ngModel)]="debugDisplay" (ngModelChange)="debugDisplayChanged()"></ion-toggle>
-    </ion-item>
+    
     <ion-item text-wrap *ngIf="analyticsSupported">
         <ion-label>
             <h2>{{ 'core.settings.enablefirebaseanalytics' | translate }}</h2>

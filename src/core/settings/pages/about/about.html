@@ -38,10 +38,6 @@
             <p><a *ngIf="fsClickable" [href]="fileSystemRoot" core-link auto-login="no">{{ fileSystemRoot }}</a></p>
             <p *ngIf="!fsClickable">{{ fileSystemRoot }}</p>
         </ion-item>
-        <ion-item text-wrap *ngIf="navigator && navigator.userAgent">
-            <h2>{{ 'core.settings.navigatoruseragent' | translate}}</h2>
-            <p>{{ navigator.userAgent }}</p>
-        </ion-item>
         <ion-item text-wrap *ngIf="navigator && navigator.language">
             <h2>{{ 'core.settings.navigatorlanguage' | translate}}</h2>
             <p>{{ navigator.language }}</p>

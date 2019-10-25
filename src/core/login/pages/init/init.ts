@@ -20,6 +20,7 @@ import { CoreInitDelegate } from '@providers/init';
 import { CoreSitesProvider } from '@providers/sites';
 import { CoreConstants } from '../../../constants';
 import { CoreLoginHelperProvider } from '../../providers/helper';
+import { CoreCourseFormatDelegate } from '@core/course/providers/format-delegate';
 
 /**
  * Page that displays a "splash screen" while the app is being initialized.
@@ -33,7 +34,7 @@ export class CoreLoginInitPage {
 
     constructor(private navCtrl: NavController, private appProvider: CoreAppProvider, private initDelegate: CoreInitDelegate,
         private sitesProvider: CoreSitesProvider, private loginHelper: CoreLoginHelperProvider,
-        private splashScreen: SplashScreen) { }
+        private splashScreen: SplashScreen, private courseFormatDelegate: CoreCourseFormatDelegate) { }
 
     /**
      * View loaded.
@@ -87,7 +88,11 @@ export class CoreLoginInitPage {
         if (this.sitesProvider.isLoggedIn()) {
             if (!this.loginHelper.isSiteLoggedOut()) {
                 // User is logged in, go to site initial page.
-                return this.loginHelper.goToSiteInitialPage();
+                // T this.navCtrl.setRoot('CoreCoursesAvailableCoursesPage');
+                // T return this.loginHelper.goToSiteInitialPage();
+                return this.loginHelper.goToSiteInitialPage(this.navCtrl,'CoreCoursesAvailableCoursesPage');
+                // T return this.navCtrl.push('CoreCoursesAvailableCoursesPage');
+                // T this.courseFormatDelegate.openCourse(this.navCtrl, {id: 2, url: ''});
             } else {
                 // The site is marked as logged out. Logout and try again.
                 return this.sitesProvider.logout().then(() => {

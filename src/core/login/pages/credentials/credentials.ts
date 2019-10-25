@@ -22,6 +22,7 @@ import { CoreDomUtilsProvider } from '@providers/utils/dom';
 import { CoreLoginHelperProvider } from '../../providers/helper';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CoreConfigConstants } from '../../../../configconstants';
+import { CoreCourseFormatDelegate } from '@core/course/providers/format-delegate';
 
 /**
  * Page to enter the user credentials.
@@ -53,7 +54,7 @@ export class CoreLoginCredentialsPage {
     constructor(private navCtrl: NavController, navParams: NavParams, fb: FormBuilder, private appProvider: CoreAppProvider,
             private sitesProvider: CoreSitesProvider, private loginHelper: CoreLoginHelperProvider,
             private domUtils: CoreDomUtilsProvider, private translate: TranslateService,
-            private eventsProvider: CoreEventsProvider) {
+            private eventsProvider: CoreEventsProvider, private courseFormatDelegate: CoreCourseFormatDelegate) {
 
         this.siteUrl = navParams.get('siteUrl');
         this.siteConfig = navParams.get('siteConfig');
@@ -223,9 +224,9 @@ export class CoreLoginCredentialsPage {
 
                 this.siteId = id;
 
-                this.navCtrl.push('CoreCoursesAvailableCoursesPage', {});
-
-                return this.loginHelper.goToSiteInitialPage(undefined, undefined, undefined, undefined, this.urlToOpen);
+                return this.loginHelper.goToSiteInitialPage(this.navCtrl,'CoreCoursesAvailableCoursesPage');
+                
+           // R return this.courseFormatDelegate.openCourse(this.navCtrl, {id: 2, displayname: 'MTN EBU SME TEAM ASSESSMENT' , shortname: 'SME SLES TEST', category: 1, cacherev: 1571967638, calendartype: "", categoryid: 1, categoryname: "Miscellaneous", completionnotify: 0, contacts: [], defaultgroupingid: 0, enablecompletion: 1, enddate: 1604102400, enrollmentmethods: ["manual"], format: "topics", fullname: "MTN EBU SME TEAM ASSESSMENT", groupmode: 0, groupmodeforce: 0, idnumber: "SME01", isEnrolled: false,lang: "en", legacyfiles: 0, marker: 0, maxbytes: 0, newsitems: 1, overviewfiles: [], requested: 0, showgrades: 1, showreports: 1, sortorder: 10001, startdate: 1571526000, summary: "", summaryfiles: [], summaryformat: 1, theme: "", timecreated: 1571501527, timemodified: 1571543395, visible: 1});
             });
         }).catch((error) => {
             this.loginHelper.treatUserTokenError(siteUrl, error, username, password);
